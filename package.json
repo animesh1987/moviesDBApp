@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build:dev": "webpack --env.dev",
-    "build": "webpack -p --env.prod",
+    "build:prod": "webpack -p --env.prod",
     "dev": "webpack-dev-server --env.dev",
     "start": "node ./server/app.js",
     "test": "jest",
