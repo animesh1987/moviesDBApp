@@ -4,6 +4,7 @@ const HtmlWebpackPlugn = require('html-webpack-plugin');
 
 module.exports = env => {
 	const isProd = !!env.prod;
+  console.log(__dirname);
 	const config = {
 		context: path.resolve('client'),
 		entry: './index',
@@ -14,13 +15,24 @@ module.exports = env => {
 			path: path.resolve('./build'),
 			publicPath: '/build/',
 		},
+    resolve: {
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
+    },
 		module: {
 			rules: [
 				{
 					test: /\.(jsx|js)$/,
           loader: "babel-loader",
           exclude: /node_modules/
-				}
+				},
+        {
+          test: /\.(tsx|ts)$/,
+          loader: "awesome-typescript-loader",
+          exclude: /node_modules/,
+          options: {
+            useCache: true
+          }
+        }
 			]
 		},
     devServer: {
