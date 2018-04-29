@@ -2,6 +2,7 @@
 .idea
 npm-debug.log
 build
+.awcache
 
 # Node
 node_modules
