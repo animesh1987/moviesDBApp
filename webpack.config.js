@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugn = require('html-webpack-plugin');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = env => {
 	const isProd = !!env.prod;
   console.log(__dirname);
@@ -24,8 +26,17 @@ module.exports = env => {
 					test: /\.(jsx|js)$/,
           loader: "babel-loader",
           exclude: /node_modules/
-				},
-        {
+				}, {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              'css-loader',
+              'sass-loader'
+            ]
+          }),
+          exclude: /node_modules/
+        }, {
           test: /\.(tsx|ts)$/,
           loader: "awesome-typescript-loader",
           exclude: /node_modules/,
@@ -43,7 +54,8 @@ module.exports = env => {
         title: "Movies DB App",
         hash: true,
         template: path.resolve(__dirname, "./index.html")
-      })
+      }),
+      new ExtractTextPlugin('style.css')
     ]
 	};
 	return config;
