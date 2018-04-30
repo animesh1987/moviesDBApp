@@ -3,6 +3,11 @@ export interface HeaderProps{
   toggleType: Function
 }
 
+export interface Movie {
+  name: string,
+}
+
 export interface State{
   genreSelected?: string,
+  movies?: Movie[]
 }

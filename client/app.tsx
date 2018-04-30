@@ -1,10 +1,12 @@
 import * as React from "react";
-import { Home } from './pages/home'
+import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
 
-import { State } from './models';
+import { State, Movie } from './models';
 
 import { Header } from './components/header';
+
+let movies: Movie[] = [];
 
 export class App extends React.Component<State> {
 
@@ -14,7 +16,8 @@ export class App extends React.Component<State> {
 
     super(props);
     this.state = {
-      genreSelected: 'title'
+      genreSelected: 'title',
+      movies
     };
 
   }
@@ -29,7 +32,7 @@ export class App extends React.Component<State> {
         <Header
           genreSelected={this.state.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)}/>
-        <Home />
+        <MoviesList movies={this.state.movies} />
       </ErrorBoundary>
     )
   }
