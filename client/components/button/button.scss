@@ -1,0 +1,36 @@
+$accent-color: rgba(53, 53, 53, 1);
+$primary-color: rgba(244, 72, 88, 1);
+$text-color: rgba(129, 129, 129, 1);
+$active-text-color: rgba(255, 255, 255, .8);
+
+button {
+  background: $accent-color;
+  border: 0;
+  border-radius: 2px;
+  color: $text-color;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 5px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  width: 100px;
+  opacity: 1;
+
+  &.primary {
+    background: $primary-color;
+    color: $active-text-color;
+  }
+
+  &.active {
+    background: $primary-color;
+    color: $active-text-color;
+  }
+
+  &.long {
+    width: 200px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

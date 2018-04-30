@@ -1,9 +1,8 @@
-export interface Props{
-  name: string,
-  check: Function
+export interface HeaderProps{
+  genreSelected?: string,
+  toggleGenre: Function
 }
 
 export interface State{
-  name: string,
-  counter: number
+  genreSelected?: string,
 }

@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 14px;
+}
+
+.layout-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.layout-align-space-between {
+  justify-content: space-between;
+}

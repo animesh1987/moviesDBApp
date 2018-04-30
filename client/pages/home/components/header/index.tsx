@@ -1,13 +1,36 @@
 import * as React from "react";
-import { Props } from '../../models';
+import { HeaderProps } from '../../models';
+
+import './header.scss';
 
 import { Button } from '../../../../components/button';
+import { Title } from './components/title';
+import { SearchTitle } from './components/searchTitle';
+import { SearchInput } from './components/searchInput';
+import { SearchBy } from './components/searchBy';
 
-export const Header: React.SFC<Props> = (props) => {
+export const Header: React.SFC<HeaderProps> = (props) => {
+
+  const containerClass: string = 'header-bar__searchBy';
+
   return (
-    <div>
-      <Button onClick={props.check}>Click me</Button>
-      This is header bar {props.name}
+    <div className="header-bar">
+
+      <Title />
+
+      <SearchTitle/>
+
+      <SearchInput />
+
+      <div className="layout-row layout-align-space-between">
+        <SearchBy
+          containerClass={containerClass}
+          genreSelected={props.genreSelected}
+          toggleGenre={ (genre: string) => props.toggleGenre(genre) } />
+
+        <Button isPrimary={true} isLong={true}>Search</Button>
+      </div>
+
     </div>
   );
 };
