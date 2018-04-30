@@ -3,7 +3,7 @@ import { HeaderProps } from '../../models';
 
 import './header.scss';
 
-import { Button } from '../../../../components/button';
+import { Button } from '../../components/button';
 import { Title } from './components/title';
 import { SearchTitle } from './components/searchTitle';
 import { SearchInput } from './components/searchInput';

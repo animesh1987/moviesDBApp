@@ -1,7 +1,7 @@
 import * as React from "react";
 import './searchBy.scss';
 
-import { Button } from '../../../../../../components/button';
+import { Button } from '../../../../components/button';
 
 interface SearchByProps {
   toggleGenre: Function,
