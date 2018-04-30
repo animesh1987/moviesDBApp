@@ -4,7 +4,7 @@ import './searchBy.scss';
 import { Button } from '../../../../components/button';
 
 interface SearchByProps {
-  toggleGenre: Function,
+  toggleType: Function,
   containerClass: string,
   genreSelected?: string
 }
@@ -15,13 +15,13 @@ export const SearchBy: React.SFC<SearchByProps> = (props) => {
       <span className="search-by">Search By</span>
       <Button
           value="title"
-          onClick={props.toggleGenre}
+          onClick={props.toggleType}
           isActive={props.genreSelected === 'title'}>
         Title
       </Button>
       <Button
         value="genre"
-        onClick={props.toggleGenre}
+        onClick={props.toggleType}
         isActive={props.genreSelected === 'genre'}>
         Genre
       </Button>

@@ -19,7 +19,7 @@ export class App extends React.Component<State> {
 
   }
 
-  toggleGenre(genre: string) {
+  toggleType(genre: string) {
     this.setState({genreSelected: genre});
   }
 
@@ -28,7 +28,7 @@ export class App extends React.Component<State> {
       <ErrorBoundary>
         <Header
           genreSelected={this.state.genreSelected}
-          toggleGenre={(genre: string) => this.toggleGenre(genre)}/>
+          toggleType={(genre: string) => this.toggleType(genre)}/>
         <Home />
       </ErrorBoundary>
     )

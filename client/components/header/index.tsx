@@ -26,7 +26,7 @@ export const Header: React.SFC<HeaderProps> = (props) => {
         <SearchBy
           containerClass={containerClass}
           genreSelected={props.genreSelected}
-          toggleGenre={ (genre: string) => props.toggleGenre(genre) } />
+          toggleType={ (genre: string) => props.toggleType(genre) } />
 
         <Button isPrimary={true} isLong={true}>Search</Button>
       </div>

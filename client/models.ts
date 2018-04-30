@@ -1,6 +1,6 @@
 export interface HeaderProps{
   genreSelected?: string,
-  toggleGenre: Function
+  toggleType: Function
 }
 
 export interface State{
