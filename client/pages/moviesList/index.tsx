@@ -12,22 +12,20 @@ interface Props {
 
 export class MoviesList extends React.Component<Props> {
 
-  movies: Movie[] | undefined;
-
   constructor(props: Props) {
     super(props);
 
-    this.movies= props.movies;
   }
 
   render() {
-    if (this.movies && this.movies.length > 0 ) {
+    if (this.props.movies && this.props.movies.length > 0 ) {
       return (
         <div className='layout-row movies-container'>
           {
-            this.movies.map((movie: Movie) => {
+            this.props.movies.map((movie: Movie) => {
             return (
               <MovieCard
+                key={movie.id}
                 movie={movie} />
             );
            })

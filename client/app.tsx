@@ -9,7 +9,7 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
-let movies: Movie[] = MOVIES.data;
+let movies: Movie[] = [];
 
 export class App extends React.Component<State> {
 
@@ -32,17 +32,17 @@ export class App extends React.Component<State> {
 
   changeSearchInput = (event: any) => {
     this.setState({searchInput: event.target.value});
-  }
+  };
 
   getSearchInput = (event: any) => {
     if (event.key === 'Enter') {
       this.triggerSearch();
     }
-  }
+  };
 
   triggerSearch = () => {
     this.setState({movies: this.moviesList});
-  }
+  };
 
   public render() {
     return (
@@ -55,7 +55,7 @@ export class App extends React.Component<State> {
           genreSelected={this.state.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)}/>
 
-        <StatusBar />
+        <StatusBar count={this.state.movies && this.state.movies.length} />
         <MoviesList movies={this.state.movies} />
         <Footer />
       </ErrorBoundary>

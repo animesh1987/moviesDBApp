@@ -16,7 +16,7 @@ export const MovieCard: React.SFC<MovieCardProps> = (props) => {
   const { movie } = props;
 
   return (
-    <div className='movie-card' key={movie.id}>
+    <div className='movie-card'>
       <MovieBanner imageUrl={movie.poster_path} />
       <MovieDetails
         title={movie.title}
