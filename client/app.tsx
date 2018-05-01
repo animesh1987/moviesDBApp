@@ -6,6 +6,8 @@ import { MOVIES } from './data';
 import { State, Movie } from './models';
 
 import { Header } from './components/header';
+import { StatusBar } from './components/statusBar';
+import { Footer } from './components/footer';
 
 let movies: Movie[] = MOVIES.data;
 
@@ -53,7 +55,9 @@ export class App extends React.Component<State> {
           genreSelected={this.state.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)}/>
 
+        <StatusBar />
         <MoviesList movies={this.state.movies} />
+        <Footer />
       </ErrorBoundary>
     )
   }

@@ -1,0 +1,9 @@
+$color: rgba(170, 70, 86, 1);
+$background-color: rgba(57, 57, 57, 1);
+
+.footer {
+  background-color: $background-color;
+  color: $color;
+  font-weight: bold;
+  padding: 20px 50px;
+}
