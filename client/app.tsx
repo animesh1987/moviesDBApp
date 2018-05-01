@@ -1,6 +1,7 @@
 import * as React from "react";
 import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
+import { MOVIES } from './data';
 
 import { State, Movie } from './models';
 
@@ -11,6 +12,7 @@ let movies: Movie[] = [];
 export class App extends React.Component<State> {
 
   state: State;
+  moviesList: any = MOVIES.data;
 
   constructor(props) {
 
@@ -20,6 +22,8 @@ export class App extends React.Component<State> {
       genreSelected: 'title',
       movies
     };
+
+    console.log(this.moviesList);
   }
 
   toggleType(genre: string) {
@@ -37,7 +41,7 @@ export class App extends React.Component<State> {
   }
 
   triggerSearch = () => {
-    console.log(`Trigger search with ${this.state.searchInput}`);
+    this.setState({movies: this.moviesList});
   }
 
   public render() {

@@ -1,62 +1,64 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugn = require('html-webpack-plugin');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = env => {
-	const isProd = !!env.prod;
-  console.log(__dirname);
-	const config = {
-		context: path.resolve('client'),
-		entry: './index',
-    mode: isProd ? "production" : "development",
-    devtool: isProd ? "none" : "source-map",
-		output: {
-			filename: 'bundle.js',
-			path: path.resolve('./build'),
-			publicPath: '/build/',
-		},
-    resolve: {
-      extensions: [".js", ".jsx", ".ts", ".tsx"]
+module.exports = (env) => {
+  const isProd = !!env.prod;
+  const config = {
+    context: path.resolve('client'),
+    entry: './index',
+    mode: isProd ? 'production' : 'development',
+    devtool: isProd ? 'none' : 'source-map',
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve('./build'),
+      publicPath: '/build/',
     },
-		module: {
-			rules: [
-				{
-					test: /\.(jsx|js)$/,
-          loader: "babel-loader",
-          exclude: /node_modules/
-				}, {
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx']
+    },
+    module: {
+      rules: [
+        {
+          test: /\.json$/,
+          loader: 'json-loader',
+          exclude: /node_modules/,
+        }, {
+          test: /\.(jsx|js)$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+        }, {
           test: /\.scss$/,
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
               'css-loader',
-              'sass-loader'
-            ]
+              'sass-loader',
+            ],
           }),
-          exclude: /node_modules/
+          exclude: /node_modules/,
         }, {
           test: /\.(tsx|ts)$/,
-          loader: "awesome-typescript-loader",
+          loader: 'awesome-typescript-loader',
           exclude: /node_modules/,
           options: {
-            useCache: true
-          }
-        }
-			]
-		},
+            useCache: true,
+          },
+        },
+      ],
+    },
     devServer: {
-      contentBase: "./build"
+      contentBase: './build',
     },
     plugins: [
       new HtmlWebpackPlugn({
-        title: "Movies DB App",
+        title: 'Movies DB App',
         hash: true,
-        template: path.resolve(__dirname, "./index.html")
+        template: path.resolve(__dirname, './index.html'),
       }),
-      new ExtractTextPlugin('style.css')
-    ]
-	};
-	return config;
+      new ExtractTextPlugin('style.css'),
+    ],
+  };
+  return config;
 };
