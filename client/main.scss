@@ -10,6 +10,15 @@ body {
   flex-direction: row;
 }
 
+.layout-column {
+  display: flex;
+  flex-direction: row;
+}
+
 .layout-align-space-between {
   justify-content: space-between;
+}
+
+.layout-align-center {
+  align-items: center;
 }

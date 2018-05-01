@@ -7,12 +7,12 @@ import { State, Movie } from './models';
 
 import { Header } from './components/header';
 
-let movies: Movie[] = [];
+let movies: Movie[] = MOVIES.data;
 
 export class App extends React.Component<State> {
 
   state: State;
-  moviesList: any = MOVIES.data;
+  moviesList: Movie[] = MOVIES.data;
 
   constructor(props) {
 
