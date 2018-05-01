@@ -5,6 +5,10 @@ $primary-color: rgba(244, 72, 88, 1);
   background: $background-color;
   height: 40px;
   padding: 0 120px;
+
+  .layout-row {
+    padding-top: 10px;
+  }
 }
 
 span {

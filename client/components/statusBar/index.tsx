@@ -9,17 +9,17 @@ interface Props {
 }
 
 export const StatusBar: React.SFC<Props> = (props) => {
-  if (props.count && props.count > 0) {
-    return (
-      <div
-        className="status-bar layout-row layout-align-center layout-align-space-between">
-        <ResultsCount count={props.count} />
-        <SortBy />
-      </div>
-    );
-  } else {
-    return (
-      <div className="status-bar layout-row layout-align-center layout-align-space-between"></div>
-    );
-  }
+  return (
+    <div
+      className="status-bar">
+      {
+        props.count && props.count > 0 ?
+          <div className="layout-row layout-align-center layout-align-space-between">
+            <ResultsCount count={props.count} />
+            <SortBy />
+          </div>
+          : null
+      }
+    </div>
+  );
 };
