@@ -1,6 +1,8 @@
 export interface HeaderProps{
   genreSelected?: string,
-  toggleType: Function
+  toggleType: Function,
+  searchInputEnter: Function,
+  searchInput?: string
 }
 
 export interface Movie {
@@ -9,5 +11,6 @@ export interface Movie {
 
 export interface State{
   genreSelected?: string,
-  movies?: Movie[]
+  movies?: Movie[],
+  searchInput?: string
 }

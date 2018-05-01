@@ -20,7 +20,9 @@ export const Header: React.SFC<HeaderProps> = (props) => {
 
       <SearchTitle/>
 
-      <SearchInput />
+      <SearchInput
+        searchInputEnter={() => props.searchInputEnter()}
+        value={props.searchInput} />
 
       <div className="layout-row layout-align-space-between">
         <SearchBy

@@ -16,6 +16,7 @@ export class App extends React.Component<State> {
 
     super(props);
     this.state = {
+      searchInput: '',
       genreSelected: 'title',
       movies
     };
@@ -25,12 +26,25 @@ export class App extends React.Component<State> {
     this.setState({genreSelected: genre});
   }
 
+  getSearchInput = (event: any) => {
+    if (event.key === 'Enter') {
+      this.triggerSearch(event.target.value);
+    }
+  }
+
+  triggerSearch = (searchString: string) => {
+    console.log(`Trigger search with ${searchString}`);
+  }
+
   public render() {
     return (
       <ErrorBoundary>
         <Header
+          searchInput={this.state.searchInput}
+          searchInputEnter={() => this.getSearchInput}
           genreSelected={this.state.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)}/>
+
         <MoviesList movies={this.state.movies} />
       </ErrorBoundary>
     )
