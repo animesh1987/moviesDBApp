@@ -9,7 +9,7 @@ export interface HeaderProps{
 
 export interface Movie {
   id: number,
-  name: string,
+  title: string,
   tagline: string,
   vote_average: number,
   vote_count: number,

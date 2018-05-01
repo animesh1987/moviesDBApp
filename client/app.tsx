@@ -22,8 +22,6 @@ export class App extends React.Component<State> {
       genreSelected: 'title',
       movies
     };
-
-    console.log(this.moviesList);
   }
 
   toggleType(genre: string) {
