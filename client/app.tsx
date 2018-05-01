@@ -26,21 +26,27 @@ export class App extends React.Component<State> {
     this.setState({genreSelected: genre});
   }
 
+  changeSearchInput = (event: any) => {
+    this.setState({searchInput: event.target.value});
+  }
+
   getSearchInput = (event: any) => {
     if (event.key === 'Enter') {
-      this.triggerSearch(event.target.value);
+      this.triggerSearch();
     }
   }
 
-  triggerSearch = (searchString: string) => {
-    console.log(`Trigger search with ${searchString}`);
+  triggerSearch = () => {
+    console.log(`Trigger search with ${this.state.searchInput}`);
   }
 
   public render() {
     return (
       <ErrorBoundary>
         <Header
+          onSearchClick={() => this.triggerSearch()}
           searchInput={this.state.searchInput}
+          onChangeInput={() => this.changeSearchInput}
           searchInputEnter={() => this.getSearchInput}
           genreSelected={this.state.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)}/>

@@ -2,6 +2,8 @@ export interface HeaderProps{
   genreSelected?: string,
   toggleType: Function,
   searchInputEnter: Function,
+  onChangeInput: Function,
+  onSearchClick: Function,
   searchInput?: string
 }
 

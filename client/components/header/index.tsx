@@ -21,6 +21,7 @@ export const Header: React.SFC<HeaderProps> = (props) => {
       <SearchTitle/>
 
       <SearchInput
+        onChangeInput={() => props.onChangeInput()}
         searchInputEnter={() => props.searchInputEnter()}
         value={props.searchInput} />
 
@@ -30,7 +31,10 @@ export const Header: React.SFC<HeaderProps> = (props) => {
           genreSelected={props.genreSelected}
           toggleType={ (genre: string) => props.toggleType(genre) } />
 
-        <Button isPrimary={true} isLong={true}>Search</Button>
+        <Button
+          onClick={props.onSearchClick}
+          isPrimary={true}
+          isLong={true}>Search</Button>
       </div>
 
     </div>
