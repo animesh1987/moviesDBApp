@@ -24,10 +24,10 @@ export interface Movie {
   genres: string[]
 }
 
-export interface State{
+export interface State {
   genreSelected?: string,
   movies: Movie[],
   searchInput?: string,
-  movieSelected: Movie | Object,
+  movieSelected: any,
   isMovieSelected: boolean
 }

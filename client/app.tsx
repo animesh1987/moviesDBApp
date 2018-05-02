@@ -10,8 +10,9 @@ import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
 let movies: Movie[] = [];
+interface Props {};
 
-export class App extends React.Component<State> {
+export class App extends React.Component<Props, State> {
 
   state: State;
   moviesList: Movie[] = MOVIES.data;
