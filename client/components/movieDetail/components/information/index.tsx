@@ -18,9 +18,9 @@ export const MovieInformation: React.SFC<Props> = (props) => {
         <span className="date">{movie.release_date.substring(0,4)}</span>
         <span className="length">{movie.runtime} min</span>
       </div>
-      <div className="description">
+      <p className="description">
         {movie.overview}
-      </div>
+      </p>
     </div>
   );
 };
