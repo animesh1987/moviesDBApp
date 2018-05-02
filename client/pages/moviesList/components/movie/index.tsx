@@ -8,7 +8,8 @@ import { MovieGenreDetails } from './components/genreDetails';
 import './movie.scss';
 
 interface MovieCardProps {
-  movie: Movie
+  movie: Movie,
+  goToMovie: Function
 }
 
 export const MovieCard: React.SFC<MovieCardProps> = (props) => {
@@ -16,7 +17,8 @@ export const MovieCard: React.SFC<MovieCardProps> = (props) => {
   const { movie } = props;
 
   return (
-    <div className='movie-card'>
+    <div className='movie-card'
+         onClick={props.goToMovie.bind(null, movie.id)}>
       <MovieBanner imageUrl={movie.poster_path} />
       <MovieDetails
         title={movie.title}

@@ -4,7 +4,9 @@ export interface HeaderProps{
   searchInputEnter: Function,
   onChangeInput: Function,
   onSearchClick: Function,
-  searchInput?: string
+  searchInput?: string,
+  isMovieSelected: boolean,
+  movie: Movie | Object
 }
 
 export interface Movie {
@@ -24,6 +26,8 @@ export interface Movie {
 
 export interface State{
   genreSelected?: string,
-  movies?: Movie[],
-  searchInput?: string
+  movies: Movie[],
+  searchInput?: string,
+  movieSelected: Movie | Object,
+  isMovieSelected: boolean
 }

@@ -7,14 +7,14 @@ import { EmptyState } from './components/emptyState';
 import './moviesList.scss';
 
 interface Props {
-  movies?: Movie[]
+  movies?: Movie[],
+  goToMovie: Function
 };
 
 export class MoviesList extends React.Component<Props> {
 
   constructor(props: Props) {
     super(props);
-
   }
 
   render() {
@@ -25,6 +25,7 @@ export class MoviesList extends React.Component<Props> {
             this.props.movies.map((movie: Movie) => {
             return (
               <MovieCard
+                goToMovie={(id: number) => this.props.goToMovie(id)}
                 key={movie.id}
                 movie={movie} />
             );

@@ -8,11 +8,20 @@ import { Title } from './components/title';
 import { SearchTitle } from './components/searchTitle';
 import { SearchInput } from './components/searchInput';
 import { SearchBy } from './components/searchBy';
+import { MovieDetail } from '../movieDetail';
 
 export const Header: React.SFC<HeaderProps> = (props) => {
 
   const containerClass: string = 'header-bar__searchBy';
+  const { movie }: {movie: any} = props;
 
+  if (props.isMovieSelected) {
+    return (
+      <div className="header-bar">
+        <MovieDetail movie={movie} />
+      </div>
+    );
+  }
   return (
     <div className="header-bar">
 

@@ -22,16 +22,26 @@ export class App extends React.Component<State> {
     this.state = {
       searchInput: '',
       genreSelected: 'title',
-      movies
+      movieSelected: {},
+      isMovieSelected: false,
+      movies,
     };
   }
 
   toggleType(genre: string) {
     this.setState({genreSelected: genre});
-  }
+  };
+
+  goToMovie(id: number) {
+    const movieSelected = this.state.movies.find(
+      (movie: Movie) => movie.id === id
+    );
+    this.setState({isMovieSelected: true});
+    this.setState({ movieSelected });
+  };
 
   changeSearchInput = (event: any) => {
-    this.setState({searchInput: event.target.value});
+    this.setState({ searchInput: event.target.value });
   };
 
   getSearchInput = (event: any) => {
@@ -41,13 +51,15 @@ export class App extends React.Component<State> {
   };
 
   triggerSearch = () => {
-    this.setState({movies: this.moviesList});
+    this.setState({ movies: this.moviesList });
   };
 
   public render() {
     return (
       <ErrorBoundary>
         <Header
+          movie={this.state.movieSelected}
+          isMovieSelected={this.state.isMovieSelected}
           onSearchClick={() => this.triggerSearch()}
           searchInput={this.state.searchInput}
           onChangeInput={() => this.changeSearchInput}
@@ -56,7 +68,9 @@ export class App extends React.Component<State> {
           toggleType={(genre: string) => this.toggleType(genre)}/>
 
         <StatusBar count={this.state.movies && this.state.movies.length} />
-        <MoviesList movies={this.state.movies} />
+        <MoviesList
+          movies={this.state.movies}
+          goToMovie={(id: number) => this.goToMovie(id)}/>
         <Footer />
       </ErrorBoundary>
     )
