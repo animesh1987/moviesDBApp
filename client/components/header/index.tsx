@@ -18,6 +18,7 @@ export const Header: React.SFC<HeaderProps> = (props) => {
   if (props.isMovieSelected) {
     return (
       <div className="header-bar">
+        <Title />
         <MovieDetail movie={movie} />
       </div>
     );

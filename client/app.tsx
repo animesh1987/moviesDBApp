@@ -9,7 +9,7 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
-let movies: Movie[] = [];
+let movies: Movie[] = MOVIES.data;
 interface Props {};
 
 export class App extends React.Component<Props, State> {
@@ -23,8 +23,8 @@ export class App extends React.Component<Props, State> {
     this.state = {
       searchInput: '',
       genreSelected: 'title',
-      movieSelected: {},
-      isMovieSelected: false,
+      movieSelected: MOVIES.data[0],
+      isMovieSelected: true,
       movies,
     };
   }
