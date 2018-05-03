@@ -3,6 +3,7 @@
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
+    "strictNullChecks": false,
 
     "noImplicitAny": false,
     "strict": true,
@@ -13,7 +14,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
 
-    "lib": ["dom", "es2015"],
+    "lib": ["dom", "es2015", "es7"],
 
     "baseUrl": "./client",
     "sourceMap": true,
