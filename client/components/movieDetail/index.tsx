@@ -3,7 +3,7 @@ import * as React from "react";
 import { Movie } from '../../models';
 import './movieDetails.scss';
 
-import { MovieBanner } from '../../pages/moviesList/components/movie/components/bannerImage';
+import { MovieBanner } from '../bannerImage';
 import { MovieInformation } from './components/information';
 
 interface Props {
