@@ -9,7 +9,7 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
-let movies: Movie[] = MOVIES.data;
+let movies: Movie[] = [];
 interface Props {};
 
 export class App extends React.Component<Props, State> {
@@ -23,8 +23,8 @@ export class App extends React.Component<Props, State> {
     this.state = {
       searchInput: '',
       genreSelected: 'title',
-      movieSelected: MOVIES.data[0],
-      isMovieSelected: true,
+      movieSelected: {},
+      isMovieSelected: false,
       movies,
     };
   }
@@ -68,7 +68,9 @@ export class App extends React.Component<Props, State> {
           genreSelected={this.state.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)}/>
 
-        <StatusBar count={this.state.movies && this.state.movies.length} />
+        <StatusBar
+          movieSelected={this.state.movieSelected}
+          count={this.state.movies && this.state.movies.length} />
         <MoviesList
           movies={this.state.movies}
           goToMovie={(id: number) => this.goToMovie(id)}/>
