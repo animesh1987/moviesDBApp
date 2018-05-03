@@ -6,7 +6,8 @@ export interface HeaderProps{
   onSearchClick: Function,
   searchInput?: string,
   isMovieSelected: boolean,
-  movie: Movie | Object
+  movie: Movie | Object,
+  reset?: Function
 }
 
 export interface Movie {

@@ -1,4 +1,6 @@
 $background-color: rgba(80, 80, 80, 0.6);
+$button-white: rgba(255, 255, 255, 0.87);
+$button-red-text: rgba(244, 72, 88, 1);
 
 .header-bar {
   background: $background-color;
@@ -7,5 +9,16 @@ $background-color: rgba(80, 80, 80, 0.6);
 
   .header-bar__searchBy {
     width: 60%;
+  }
+
+  .movie-selected {
+
+    button {
+      background-color: $button-white;
+      color: $button-red-text;
+      font-weight: 600;
+      font-size: 12px;
+      height: 36px;
+    }
   }
 }

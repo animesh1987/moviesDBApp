@@ -18,7 +18,11 @@ export const Header: React.SFC<HeaderProps> = (props) => {
   if (props.isMovieSelected) {
     return (
       <div className="header-bar">
-        <Title />
+        <div className="layout-row layout-align-space-between movie-selected">
+          <Title />
+          <Button onClick={props.reset}>Search</Button>
+        </div>
+
         <MovieDetail movie={movie} />
       </div>
     );

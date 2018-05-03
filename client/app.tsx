@@ -60,10 +60,17 @@ export class App extends React.Component<Props, State> {
     this.setState({ movies: this.moviesList });
   };
 
+  reset() {
+    this.setState({ isMovieSelected: false });
+    this.setState({ movieSelected: {} });
+    this.setState({ movies: this.moviesList });
+  };
+
   public render() {
     return (
       <ErrorBoundary>
         <Header
+          reset={() => this.reset()}
           movie={this.state.movieSelected}
           isMovieSelected={this.state.isMovieSelected}
           onSearchClick={() => this.triggerSearch()}
