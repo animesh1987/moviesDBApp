@@ -18,6 +18,8 @@ yarn dev
 npm run dev
 ```
 
+## How To Test?
+
 Once the application is loaded in the browser:
 
 - The first page displays the empty state.
