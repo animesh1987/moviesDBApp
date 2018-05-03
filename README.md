@@ -13,6 +13,7 @@ npm install
 yarn dev
 # OR
 npm run dev
+```
 
 Once the application is loaded in the browser:
 
