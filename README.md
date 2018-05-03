@@ -3,9 +3,12 @@
 ## Setup and install
 
 -  Clone project and cd into directory
+
+```
 yarn install
 # OR
 npm install
+```
 
 - Now simply run this to boot up the server:
 
