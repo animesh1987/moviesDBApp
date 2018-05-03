@@ -8,6 +8,7 @@ import { ByGenre } from './components/genre';
 
 interface Props {
   count?: number,
+  sortBy: Function
   movieSelected: Movie
 }
 
@@ -24,7 +25,8 @@ export const StatusBar: React.SFC<Props> = (props) => {
           count && count > 0 ?
             <div className="layout-row layout-align-center layout-align-space-between">
               <ResultsCount count={count} />
-              <SortBy />
+              <SortBy
+                sortBy={(type: string) => props.sortBy(type)} />
             </div>
             : null
       }

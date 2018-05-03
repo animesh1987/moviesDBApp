@@ -66,6 +66,10 @@ export class App extends React.Component<Props, State> {
     this.setState({ movies: this.moviesList });
   };
 
+  sortBy(type: string) {
+    console.log(type);
+  };
+
   public render() {
     return (
       <ErrorBoundary>
@@ -81,6 +85,7 @@ export class App extends React.Component<Props, State> {
           toggleType={(genre: string) => this.toggleType(genre)} />
 
         <StatusBar
+          sortBy={(type:string) => this.sortBy(type)}
           movieSelected={this.state.movieSelected}
           count={this.state.movies && this.state.movies.length} />
         <MoviesList
