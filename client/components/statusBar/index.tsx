@@ -8,7 +8,8 @@ import { ByGenre } from './components/genre';
 
 interface Props {
   count?: number,
-  sortBy: Function
+  sortBy: Function,
+  sortedBy: string,
   movieSelected: Movie
 }
 
@@ -26,6 +27,7 @@ export const StatusBar: React.SFC<Props> = (props) => {
             <div className="layout-row layout-align-center layout-align-space-between">
               <ResultsCount count={count} />
               <SortBy
+                selected={props.sortedBy}
                 sortBy={(type: string) => props.sortBy(type)} />
             </div>
             : null

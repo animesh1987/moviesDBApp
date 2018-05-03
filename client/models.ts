@@ -30,5 +30,6 @@ export interface State {
   movies: Movie[],
   searchInput?: string,
   movieSelected: any,
-  isMovieSelected: boolean
+  isMovieSelected: boolean,
+  sortBy: string
 }

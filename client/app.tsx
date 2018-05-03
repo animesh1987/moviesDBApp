@@ -23,6 +23,7 @@ export class App extends React.Component<Props, State> {
     this.state = {
       searchInput: '',
       genreSelected: 'title',
+      sortBy: 'release_date',
       movieSelected: {},
       isMovieSelected: false,
       movies,
@@ -67,7 +68,7 @@ export class App extends React.Component<Props, State> {
   };
 
   sortBy(type: string) {
-    console.log(type);
+    this.setState({ sortBy: type });
   };
 
   public render() {
@@ -85,6 +86,7 @@ export class App extends React.Component<Props, State> {
           toggleType={(genre: string) => this.toggleType(genre)} />
 
         <StatusBar
+          sortedBy={this.state.sortBy}
           sortBy={(type:string) => this.sortBy(type)}
           movieSelected={this.state.movieSelected}
           count={this.state.movies && this.state.movies.length} />
