@@ -1,4 +1,8 @@
 import * as React from "react";
+import { TitleAndRating } from './components/titleAndRating';
+import { Tagline } from './components/tagline';
+import { ReleaseAndRuntime } from './components/releaseAndRuntime';
+import { Description } from './components/description';
 
 interface Props {
   movie: any
@@ -9,18 +13,17 @@ export const MovieInformation: React.SFC<Props> = (props) => {
   const { movie } = props;
   return (
     <div className="layout-column">
-      <div className="layout-row layout-align-center">
-        <span className="title">{movie.title}</span>
-        <span className="average">{movie.vote_average}</span>
-      </div>
-      <div className="tagline">{movie.tagline}</div>
-      <div className="layout-row">
-        <span className="date">{movie.release_date.substring(0,4)}</span>
-        <span className="length">{movie.runtime} min</span>
-      </div>
-      <p className="description">
-        {movie.overview}
-      </p>
+      <TitleAndRating
+        title={movie.title}
+        rating={movie.vote_average} />
+
+      <Tagline tagline={movie.tagline} />
+
+      <ReleaseAndRuntime
+        release_date={movie.release_date.substring(0,4)}
+        runtime={movie.runtime} />
+
+      <Description description={movie.overview} />
     </div>
   );
 };
