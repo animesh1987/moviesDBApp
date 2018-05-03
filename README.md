@@ -14,9 +14,9 @@ yarn dev
 # OR
 npm run dev
 
-Once the application is loaded in the browser
+Once the application is loaded in the browser:
 
-- The first page displays the empty state
+- The first page displays the empty state.
 - To trigger search either press the search button or type something in search bar
   and press enter.
 - Once a movie list from json data file is loaded, click on any movie to view the detail
