@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { Movie } from '../../models';
-import { MovieCard } from './components/movie';
+import { MovieCard } from '../../components/movie';
 import { EmptyState } from './components/emptyState';
 
 import './moviesList.scss';

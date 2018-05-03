@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Movie } from '../../../../models';
+import { Movie } from '../../models';
 
 import { MovieBanner } from './components/bannerImage';
 import { MovieDetails } from './components/details';
