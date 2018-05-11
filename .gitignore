@@ -3,6 +3,7 @@
 npm-debug.log
 build
 .awcache
+coverage
 
 # Node
 node_modules
