@@ -3,7 +3,11 @@ $background-color: rgba(57, 57, 57, 1);
 
 .footer {
   background-color: $background-color;
+  bottom: 0;
   color: $color;
   font-weight: bold;
+  left: 0;
   padding: 20px 50px;
+  position: fixed;
+  right: 0;
 }
