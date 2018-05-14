@@ -9,10 +9,10 @@ describe('Movie Banner Test', () => {
   const isPrimary =  true;
   const isLong =  true;
 
-  let clickFn = () => {};
+  const clickFn = jest.fn();
 
   it('renders correctly', () => {
-    const component = create(<Button onClick={clickFn()}/>)
+    const component = create(<Button/>)
       .toJSON();
     expect(component).toMatchSnapshot();
   });
@@ -30,5 +30,11 @@ describe('Movie Banner Test', () => {
   it('active added successfully', () => {
     const component = shallow(<Button isPrimary={isPrimary} />);
     expect(component.find('button').hasClass('primary')).toBe(true);
+  });
+
+  it('active added successfully', () => {
+    const component = shallow(<Button onClick={clickFn} />);
+    component.find('button').simulate('click');
+    expect(clickFn).toBeCalled();
   });
 });
