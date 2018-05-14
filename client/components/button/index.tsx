@@ -13,7 +13,7 @@ export const Button = ({...rest}) => {
     classes.push('primary');
   }
 
-  if (rest.isPrimary) {
+  if (rest.isLong) {
     classes.push('long');
   }
 

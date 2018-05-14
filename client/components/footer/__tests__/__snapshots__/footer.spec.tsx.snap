@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie Banner Test renders correctly 1`] = `
-<img
-  alt="Movie Banner"
-  src="asdac"
-/>
+<div
+  className="footer"
+>
+  netflixroulette
+</div>
 `;

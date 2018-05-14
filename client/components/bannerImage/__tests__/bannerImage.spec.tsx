@@ -1,14 +1,20 @@
 import * as React from 'react';
 import { create } from 'react-test-renderer';
-/*import { S } from 'enzyme';*/
+import { shallow } from 'enzyme';
 
 import { MovieBanner } from '../index';
 
 describe('Movie Banner Test', () => {
+  const imageLink = 'asdac';
+
   it('renders correctly', () => {
-    const imageLink = 'asdac';
     const component = create(<MovieBanner imageUrl={imageLink} />)
       .toJSON();
     expect(component).toMatchSnapshot();
+  });
+
+  it('Image Link applied correctly', () => {
+    const component = shallow(<MovieBanner imageUrl={imageLink} />);
+    expect(component.find('img').prop('src')).toEqual(imageLink);
   });
 });

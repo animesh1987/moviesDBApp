@@ -6,7 +6,7 @@
     "build:dev": "webpack --env.dev",
     "build:prod": "webpack -p --env.prod",
     "dev": "webpack-dev-server --env.dev",
-    "test": "jest",
+    "test": "jest -u",
     "coverage": "jest --coverage",
     "lint": "eslint ."
   },
