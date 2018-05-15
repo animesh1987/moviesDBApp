@@ -22,17 +22,17 @@ describe('Movie Banner Test', () => {
     expect(component.find('button').hasClass('active')).toBe(true);
   });
 
-  it('active added successfully', () => {
+  it('long added successfully', () => {
     const component = shallow(<Button isLong={isLong} />);
     expect(component.find('button').hasClass('long')).toBe(true);
   });
 
-  it('active added successfully', () => {
+  it('primary added successfully', () => {
     const component = shallow(<Button isPrimary={isPrimary} />);
     expect(component.find('button').hasClass('primary')).toBe(true);
   });
 
-  it('active added successfully', () => {
+  it('function called successfully', () => {
     const component = shallow(<Button onClick={clickFn} />);
     component.find('button').simulate('click');
     expect(clickFn).toBeCalled();

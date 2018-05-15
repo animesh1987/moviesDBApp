@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Input Test renders correctly 1`] = `
+<div
+  className="search-input-container"
+>
+  <input
+    onChange={undefined}
+    onKeyPress={undefined}
+    placeholder="Titles, people, genres..."
+    type="text"
+    value="Search Input"
+  />
+  <i
+    className="material-icons"
+  >
+    keyboard_return
+  </i>
+</div>
+`;

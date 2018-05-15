@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Test Header with movie renders correctly 1`] = `
+<div
+  className="header-bar"
+>
+  <div
+    className="layout-row layout-align-space-between movie-selected"
+  >
+    <h3>
+      netflixroulette
+    </h3>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>
+  <div
+    className="movie-detail layout-row"
+  >
+    <img
+      alt="Movie Banner"
+      src={undefined}
+    />
+    <div
+      className="layout-column"
+    >
+      <div
+        className="layout-row layout-align-center"
+      >
+        <span
+          className="title"
+        >
+          Test
+        </span>
+        <span
+          className="average"
+        />
+      </div>
+      <div
+        className="tagline"
+      />
+      <div
+        className="layout-row"
+      >
+        <span
+          className="date"
+        >
+          20-0
+        </span>
+        <span
+          className="length"
+        >
+          144
+           min
+        </span>
+      </div>
+      <p
+        className="description"
+      >
+        Test overview
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header Test Header without movie renders correctly 1`] = `
+<div
+  className="header-bar"
+>
+  <h3>
+    netflixroulette
+  </h3>
+  <div
+    className="search-title"
+  >
+    Find your movie
+  </div>
+  <div
+    className="search-input-container"
+  >
+    <input
+      onChange={undefined}
+      onKeyPress={undefined}
+      placeholder="Titles, people, genres..."
+      type="text"
+      value=""
+    />
+    <i
+      className="material-icons"
+    >
+      keyboard_return
+    </i>
+  </div>
+  <div
+    className="layout-row layout-align-space-between"
+  >
+    <div
+      className="header-bar__searchBy"
+    >
+      <span
+        className="search-by"
+      >
+        Search By
+      </span>
+      <button
+        className="active"
+        onClick={[Function]}
+      >
+        Title
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
+      >
+        Genre
+      </button>
+    </div>
+    <button
+      className="primary long"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>
+</div>
+`;
