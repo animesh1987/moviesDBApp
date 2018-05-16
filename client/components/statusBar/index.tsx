@@ -8,9 +8,9 @@ import { ByGenre } from './components/genre';
 
 interface Props {
   count?: number,
-  sortBy: Function,
-  sortedBy: string,
-  movieSelected: Movie
+  sortBy?: Function,
+  sortedBy?: string,
+  movieSelected?: Movie
 }
 
 export const StatusBar: React.SFC<Props> = (props) => {

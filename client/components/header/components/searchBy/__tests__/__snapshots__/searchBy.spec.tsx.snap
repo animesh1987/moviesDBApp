@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search By test Search By renders correctly 1`] = `
+<div
+  className="test"
+>
+  <span
+    className="search-by"
+  >
+    Search By
+  </span>
+  <button
+    className="active"
+    onClick={[Function]}
+  >
+    Title
+  </button>
+  <button
+    className=""
+    onClick={[Function]}
+  >
+    Genre
+  </button>
+</div>
+`;

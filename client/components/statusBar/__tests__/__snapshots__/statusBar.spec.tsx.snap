@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort By Test renders correctly 1`] = `
+<div
+  className="status-bar"
+>
+  <div
+    className="layout-row layout-align-center layout-align-space-between"
+  >
+    <span>
+      Films by 
+      action
+       genre
+    </span>
+  </div>
+</div>
+`;

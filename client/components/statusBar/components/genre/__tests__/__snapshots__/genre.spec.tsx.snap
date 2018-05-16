@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Genre Test renders correctly 1`] = `
+<span>
+  Films by 
+  Test
+   genre
+</span>
+`;

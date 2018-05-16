@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort By Test renders correctly 1`] = `
+<div>
+  <span>
+    Sort By
+  </span>
+  <span
+    className="cursor-pointer "
+    onClick={[Function]}
+  >
+    release date
+  </span>
+  <span
+    className="cursor-pointer "
+    onClick={[Function]}
+  >
+    rating
+  </span>
+</div>
+`;
