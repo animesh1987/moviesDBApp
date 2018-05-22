@@ -6,7 +6,11 @@ interface Props {
 }
 
 export const MovieBanner: React.SFC<Props> = (props) => {
+
+  const style = {
+    backgroundImage: `url(${props.imageUrl})`
+  };
   return (
-    <img src={props.imageUrl} alt="Movie Banner"/>
+    <div className="banner-image" style={style}></div>
   )
 };

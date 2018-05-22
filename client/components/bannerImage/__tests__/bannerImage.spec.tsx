@@ -15,6 +15,7 @@ describe('Movie Banner Test', () => {
 
   it('Image Link applied correctly', () => {
     const component = shallow(<MovieBanner imageUrl={imageLink} />);
-    expect(component.find('img').prop('src')).toEqual(imageLink);
+    expect(component.find('div').prop('style'))
+      .toHaveProperty('backgroundImage', `url(${imageLink})`);
   });
 });
