@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Details Test renders correctly 1`] = `
+<div
+  className="genre-details"
+>
+  Test Test 2
+</div>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Details Test renders correctly 1`] = `
+<div
+  className="layout-row layout-align-space-between layout-align-center"
+>
+  <span
+    className="movie-title"
+  >
+    Test
+  </span>
+  <span
+    className="release-date"
+  >
+    2017
+  </span>
+</div>
+`;
