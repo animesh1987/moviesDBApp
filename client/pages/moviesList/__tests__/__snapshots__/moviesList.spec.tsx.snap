@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies List Test Empty state renders correctly 1`] = `
+<div
+  className="empty-state"
+>
+  <h1>
+    No films found
+  </h1>
+</div>
+`;
+
+exports[`Movies List Test Movie renders correctly 1`] = `
+<div
+  className="layout-row movies-container"
+>
+  <div
+    className="movie-card"
+    onClick={[Function]}
+  >
+    <div
+      className="banner-image"
+      style={
+        Object {
+          "backgroundImage": "url(abc)",
+        }
+      }
+    />
+    <div
+      className="layout-row layout-align-space-between layout-align-center"
+    >
+      <span
+        className="movie-title"
+      >
+        Test
+      </span>
+      <span
+        className="release-date"
+      >
+        20-0
+      </span>
+    </div>
+    <div
+      className="genre-details"
+    >
+      test
+    </div>
+  </div>
+</div>
+`;

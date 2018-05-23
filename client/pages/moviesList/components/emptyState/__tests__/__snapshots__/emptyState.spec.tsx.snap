@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty State Test renders correctly 1`] = `
+<div
+  className="empty-state"
+>
+  <h1>
+    No films found
+  </h1>
+</div>
+`;
