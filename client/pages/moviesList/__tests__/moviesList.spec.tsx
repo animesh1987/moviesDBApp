@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { create } from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import { MoviesList } from '../index';
 
@@ -36,12 +36,13 @@ describe('Movies List Test', () => {
   });
 
   it('gotomovie is called correctly', () => {
-    const component = shallow(
+    const component = mount(
       <MoviesList
         goToMovie={testFn}
         movies={[movie]}/>
     );
-    console.log(component.childAt(1).html());
+    component.find('.movie-card').simulate('click');
+    expect(testFn).toBeCalled();
     expect(true).toBe(true);
   });
 });
