@@ -27,7 +27,7 @@ module.exports = (env) => {
         }, {
           test: /\.(jsx|js)$/,
           loader: 'babel-loader',
-          exclude: /node_modules/,
+          exclude: [/node_modules/, /__tests__/],
         }, {
           test: /\.scss$/,
           use: ExtractTextPlugin.extract({
@@ -41,7 +41,7 @@ module.exports = (env) => {
         }, {
           test: /\.(tsx|ts)$/,
           loader: 'awesome-typescript-loader',
-          exclude: /node_modules/,
+          exclude: [/node_modules/, /__tests__/],
           options: {
             useCache: true,
           },

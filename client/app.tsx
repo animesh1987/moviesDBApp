@@ -38,7 +38,7 @@ export class App extends React.Component<Props, State> {
     this.setState({ searchInput: event.target.value });
   };
 
-  getSearchInput = (event: any) => {
+  getSearchInput = (event) => {
     if (event.key === 'Enter') {
       this.triggerSearch();
     }

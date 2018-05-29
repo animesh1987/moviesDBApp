@@ -76,6 +76,7 @@ describe('Movies List Test', () => {
     const component = mount(<App />);
     const input = component.find('input');
     input.simulate('keypress', {key: 'Enter'});
+    component.update();
     expect(component.state().movies.length).toBe(10);
   });
 
