@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { create } from 'react-test-renderer';
-/*import {shallow} from "enzyme";*/
+import { mount } from "enzyme";
 
 import { StatusBar } from '../index';
 import {Movie} from "../../../models";
@@ -33,7 +33,7 @@ describe('Sort By Test', () => {
     expect(component).toMatchSnapshot();
   });
 
-  /*it('renders correctly', () => {
+  it('renders correctly', () => {
     const component = create(
       <StatusBar
         count={0}
@@ -43,5 +43,19 @@ describe('Sort By Test', () => {
       />)
       .toJSON();
     expect(component).toMatchSnapshot();
-  });*/
+  });
+
+  it('calls sort by function', () => {
+    const component = mount(
+      <StatusBar
+        count={1}
+        movieSelected={{}}
+        sortBy={sortBy}
+        sortedBy={sortedBy}
+      />
+    );
+    component.find('span')
+      .at(3).simulate('click');
+    expect(sortBy).toBeCalled();
+  });
 });

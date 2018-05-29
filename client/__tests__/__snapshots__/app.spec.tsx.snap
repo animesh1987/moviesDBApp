@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies List Test Empty state renders correctly 1`] = `
+Array [
+  <div
+    className="header-bar"
+  >
+    <h3>
+      netflixroulette
+    </h3>
+    <div
+      className="search-title"
+    >
+      Find your movie
+    </div>
+    <div
+      className="search-input-container"
+    >
+      <input
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Titles, people, genres..."
+        type="text"
+        value=""
+      />
+      <i
+        className="material-icons"
+      >
+        keyboard_return
+      </i>
+    </div>
+    <div
+      className="layout-row layout-align-space-between"
+    >
+      <div
+        className="header-bar__searchBy"
+      >
+        <span
+          className="search-by"
+        >
+          Search By
+        </span>
+        <button
+          className="active"
+          onClick={[Function]}
+        >
+          Title
+        </button>
+        <button
+          className=""
+          onClick={[Function]}
+        >
+          Genre
+        </button>
+      </div>
+      <button
+        className="primary long"
+        onClick={[Function]}
+      >
+        Search
+      </button>
+    </div>
+  </div>,
+  <div
+    className="status-bar"
+  />,
+  <div
+    className="empty-state"
+  >
+    <h1>
+      No films found
+    </h1>
+  </div>,
+  <div
+    className="footer"
+  >
+    netflixroulette
+  </div>,
+]
+`;

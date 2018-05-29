@@ -34,19 +34,6 @@ export class App extends React.Component<Props, State> {
     this.setState({ genreSelected: genre });
   };
 
-  goToMovie(id: number) {
-    const movieSelected = this.state.movies.find(
-      (movie: Movie) => movie.id === id
-    );
-    const genre = movieSelected.genres[0];
-    const movies = this.state.movies.filter(
-      (movie: Movie) => movie.genres.includes(genre)
-    );
-    this.setState({ isMovieSelected: true });
-    this.setState({ movieSelected });
-    this.setState({ movies });
-  };
-
   changeSearchInput = (event: any) => {
     this.setState({ searchInput: event.target.value });
   };
@@ -59,6 +46,19 @@ export class App extends React.Component<Props, State> {
 
   triggerSearch = () => {
     this.setState({ movies: this.moviesList });
+  };
+
+  goToMovie(id: number) {
+    const movieSelected = this.state.movies.find(
+      (movie: Movie) => movie.id === id
+    );
+    const genre = movieSelected.genres[0];
+    const movies = this.state.movies.filter(
+      (movie: Movie) => movie.genres.includes(genre)
+    );
+    this.setState({ isMovieSelected: true });
+    this.setState({ movieSelected });
+    this.setState({ movies });
   };
 
   reset() {

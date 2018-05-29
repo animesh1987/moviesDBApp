@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { create } from 'react-test-renderer';
-import { shallow } from 'enzyme';
 
 import { MovieCard } from '../index';
 
