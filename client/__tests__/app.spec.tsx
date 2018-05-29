@@ -72,6 +72,11 @@ describe('Movies List Test', () => {
     expect(component.state().isMovieSelected).toBe(false);
   });
 
-  it('should set toggle type', () => {});
+  it('search is triggered when enter is pressed', () => {
+    const component = mount(<App />);
+    const input = component.find('input');
+    input.simulate('keypress', {key: 'Enter'});
+    expect(component.state().movies.length).toBe(10);
+  });
 
 });
