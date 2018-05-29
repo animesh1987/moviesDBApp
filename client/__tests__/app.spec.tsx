@@ -22,7 +22,7 @@ describe('Movies List Test', () => {
     expect(component.state().genreSelected).toBe('title');
   });
 
-  it('should set toggle type', () => {
+  it('sets search input correctly', () => {
     const component = mount(<App />);
 
     const input = component.find('input');
@@ -34,7 +34,8 @@ describe('Movies List Test', () => {
 
     expect(component.state().searchInput).toBe('a');
   });
-  it('should set toggle type', () => {
+
+  it('click on search button works correctly', () => {
     const component = mount(<App />);
     const input = component.find('input');
     input.simulate('change', {
@@ -46,20 +47,31 @@ describe('Movies List Test', () => {
     component.find('.primary.long').simulate('click');
     expect(component.state().movies.length).toBe(10);
   });
-  it('should set toggle type', () => {
+
+  it('sort by is applied correctly', () => {
     const component = mount(<App />);
-    const input = component.find('input');
-    input.simulate('change', {
-      target: {
-        value: 'a'
-      }
-    });
-    component.find('.primary.long').simulate('click');
+    component.instance().triggerSearch();
     component.update();
-    console.log(component.html());
+    component.find('.status-bar span')
+      .at(3).simulate('click');
+    expect(component.state().sortBy).toBe('rating');
   });
-  it('should set toggle type', () => {});
-  it('should set toggle type', () => {});
+
+  it('app resets correctly', () => {
+    const component = mount(<App />);
+    component.instance().triggerSearch();
+    component.update();
+    component
+      .find('.movies-container .movie-card')
+      .at(0)
+      .simulate('click');
+    component.update();
+    component
+      .find('.movie-selected button')
+      .simulate('click');
+    expect(component.state().isMovieSelected).toBe(false);
+  });
+
   it('should set toggle type', () => {});
 
 });
