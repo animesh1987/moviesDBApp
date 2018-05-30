@@ -28,6 +28,7 @@ export class App extends React.Component<Props, State> {
       isMovieSelected: false,
       movies,
     };
+    console.log(this.state);
   }
 
   toggleType(genre: string) {
