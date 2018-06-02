@@ -102,8 +102,8 @@ const mapStateToProps = state => {
   })
 };
 
-/*const mapDispatchToProps = dispatch => ({
-  getMovies
-});*/
+const mapDispatchToProps = dispatch => ({
+  getMovies: () => dispatch(getMovies())
+});
 
-export default connect(mapStateToProps, { getMovies })(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
