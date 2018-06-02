@@ -2,10 +2,8 @@ import * as actions from './actionTypes';
 
 import {MOVIES} from '../data';
 
-console.log(MOVIES);
-
 export const getMovies = () => dispatch => {
-  const movies = MOVIES;
+  const movies = MOVIES.data;
   dispatch({
     type: actions.GET_MOVIES,
     movies

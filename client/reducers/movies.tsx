@@ -1,7 +1,4 @@
 import * as actions from "../actions/actionTypes";
-/*import { sortBy } from "../actions";*/
-
-console.log(actions.GET_MOVIES);
 
 const initialState = {
   searchInput: '',
@@ -12,10 +9,11 @@ const initialState = {
   movies: [],
 };
 
-export default (state = initialState, action) => {
+export const movies = (state = initialState, action) => {
   switch (action.type) {
 
     case actions.GET_MOVIES:
+      console.log('reducer called');
       return {
         ...state,
         movies: action.movies

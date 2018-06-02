@@ -11,36 +11,14 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
-const initialState = {
-  searchInput: '',
-  genreSelected: 'title',
-  sortBy: 'release_date',
-  movieSelected: {},
-  isMovieSelected: false,
-  movies: [],
-};
-
 class App extends React.Component<any, State> {
 
-  componentWillMount() {
-    this.props.getMovies();
-  }
+  /*componentWillMount() {
+    console.log(this.props.getMovies);
+  }*/
 
   state: State;
   moviesList: Movie[] = MOVIES.data;
-
-  /*constructor(props) {
-
-    super(props);
-    this.state = {
-      searchInput: '',
-      genreSelected: 'title',
-      sortBy: 'release_date',
-      movieSelected: {},
-      isMovieSelected: false,
-      movies,
-    };
-  }*/
 
   toggleType(genre: string) {
     this.setState({ genreSelected: genre });
@@ -57,7 +35,8 @@ class App extends React.Component<any, State> {
   };
 
   triggerSearch = () => {
-    this.setState({ movies: this.moviesList });
+    /*this.setState({ movies: this.moviesList });*/
+    this.props.getMovies();
   };
 
   goToMovie(id: number) {
@@ -111,12 +90,20 @@ class App extends React.Component<any, State> {
   }
 }
 
-const mapStateToProps = () => ({
-  ...initialState
-});
+const mapStateToProps = state => {
+  state = state.movies;
+  return ({
+    searchInput: '',
+    genreSelected: 'title',
+    sortBy: 'release_date',
+    movieSelected: {},
+    isMovieSelected: false,
+    movies: state.movies,
+  })
+};
 
-const mapDispatchToProps = dispatch => ({
-  getMovies: () => dispatch(getMovies())
-});
+/*const mapDispatchToProps = dispatch => ({
+  getMovies
+});*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, { getMovies })(App);
