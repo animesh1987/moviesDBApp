@@ -3,7 +3,7 @@ import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
 import { connect } from 'react-redux';
 import { MOVIES } from './data';
-import { getMovies } from './actions';
+import { getMovies, toggleType, changeSearchInput } from './actions';
 
 import { State, Movie } from './models';
 
@@ -21,22 +21,22 @@ class App extends React.Component<any, State> {
   moviesList: Movie[] = MOVIES.data;
 
   toggleType(genre: string) {
-    this.setState({ genreSelected: genre });
+    this.props.toggleType(genre);
   };
 
   changeSearchInput = (event: any) => {
-    this.setState({ searchInput: event.target.value });
+    this.props.changeSearchInput(event.target.value);
+    /*this.setState({ searchInput: event.target.value });*/
   };
 
-  getSearchInput = (event) => {
+  getSearchInput = (event: any) => {
     if (event.key === 'Enter') {
       this.triggerSearch();
     }
   };
 
   triggerSearch = () => {
-    /*this.setState({ movies: this.moviesList });*/
-    this.props.getMovies();
+    this.props.getMovies(this.props.searchInput);
   };
 
   goToMovie(id: number) {
@@ -93,8 +93,8 @@ class App extends React.Component<any, State> {
 const mapStateToProps = state => {
   state = state.movies;
   return ({
-    searchInput: '',
-    genreSelected: 'title',
+    searchInput: state.searchInput,
+    genreSelected: state.genreSelected,
     sortBy: 'release_date',
     movieSelected: {},
     isMovieSelected: false,
@@ -103,7 +103,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getMovies: () => dispatch(getMovies())
+  getMovies: (searchInput) => dispatch(getMovies(searchInput)),
+  toggleType: (type) => dispatch(toggleType(type)),
+  changeSearchInput: (text) => dispatch(changeSearchInput(text)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

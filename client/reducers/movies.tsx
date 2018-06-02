@@ -13,51 +13,52 @@ export const movies = (state = initialState, action) => {
   switch (action.type) {
 
     case actions.GET_MOVIES:
-      console.log('reducer called');
       return {
         ...state,
         movies: action.movies
       };
 
-    /* case actions.TOGGLE_TYPE:
+    case actions.TOGGLE_TYPE:
       return {
         ...state,
-        searchBy: action.type,
+        genreSelected: action.toggle_type,
         movies: action.movies
       };
 
     case actions.CHANGE_SEARCH_INPUT:
+      console.log('reducer called');
       return {
         ...state,
-        searchInput: action.searchInputEnter
+        searchInput: action.text
       };
+    /*
 
-    case actions.TRIGGER_SEARCH:
-      return {
-        ...state,
-        movies: action.movies
-      };
+        case actions.TRIGGER_SEARCH:
+          return {
+            ...state,
+            movies: action.movies
+          };
 
-    case actions.GET_MOVIE:
-      return {
-        ...state,
-        movie: action.movie,
-        movies: action.movies
-      };
+        case actions.GET_MOVIE:
+          return {
+            ...state,
+            movie: action.movie,
+            movies: action.movies
+          };
 
-    case actions.RESET:
-      return {
-        ...state,
-        ...initialState
-      };
+        case actions.RESET:
+          return {
+            ...state,
+            ...initialState
+          };
 
-    case actions.SORT_MOVIES:
-      return {
-        ...state,
-        movies: action.movies,
-        sortBy: sortBy
-      };
-*/
+        case actions.SORT_MOVIES:
+          return {
+            ...state,
+            movies: action.movies,
+            sortBy: sortBy
+          };
+    */
     default:
       return state;
   }

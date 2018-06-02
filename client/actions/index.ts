@@ -2,23 +2,30 @@ import * as actions from './actionTypes';
 
 import {MOVIES} from '../data';
 
-export const getMovies = () => dispatch => {
-  const movies = MOVIES.data;
+const movies = MOVIES.data;
+
+export const getMovies = (searchInput) => dispatch => {
+  console.log('search input', searchInput);
   dispatch({
     type: actions.GET_MOVIES,
     movies
   });
 };
 
-export const toggleType = toggle_type => ({
-  type: actions.TOGGLE_TYPE,
-  toggle_type
-});
+export const toggleType = toggle_type => dispatch => {
+  dispatch({
+    type: actions.TOGGLE_TYPE,
+    toggle_type,
+    movies
+  });
+};
 
-export const changeSearchInput = text => ({
-  type: actions.CHANGE_SEARCH_INPUT,
-  text
-});
+export const changeSearchInput = text => dispatch => {
+  dispatch({
+    type: actions.CHANGE_SEARCH_INPUT,
+    text
+  });
+};
 
 export const getSearchInput = key => ({
   type: actions.TRIGGER_SEARCH,
