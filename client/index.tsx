@@ -1,12 +1,16 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import {store} from "./store";
 
 import './main.scss';
 
-console.log(Provider, createStore);
+import App  from './app';
 
-import { App } from './app';
+const app = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDom.render(app, document.getElementById("app"));

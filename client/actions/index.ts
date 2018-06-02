@@ -1,10 +1,16 @@
 import * as actions from './actionTypes';
 
-export const getMovies = (search_by, text) => ({
-  type: actions.GET_MOVIES,
-  search_by,
-  text
-});
+import {MOVIES} from '../data';
+
+console.log(MOVIES);
+
+export const getMovies = () => dispatch => {
+  const movies = MOVIES;
+  dispatch({
+    type: actions.GET_MOVIES,
+    movies
+  });
+};
 
 export const toggleType = toggle_type => ({
   type: actions.TOGGLE_TYPE,

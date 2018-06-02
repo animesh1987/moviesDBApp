@@ -1,7 +1,9 @@
 import * as React from "react";
 import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
+import { connect } from 'react-redux';
 import { MOVIES } from './data';
+import { getMovies } from './actions';
 
 import { State, Movie } from './models';
 
@@ -9,15 +11,25 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
-let movies: Movie[] = [];
-interface Props {};
+const initialState = {
+  searchInput: '',
+  genreSelected: 'title',
+  sortBy: 'release_date',
+  movieSelected: {},
+  isMovieSelected: false,
+  movies: [],
+};
 
-export class App extends React.Component<Props, State> {
+class App extends React.Component<any, State> {
+
+  componentWillMount() {
+    this.props.getMovies();
+  }
 
   state: State;
   moviesList: Movie[] = MOVIES.data;
 
-  constructor(props) {
+  /*constructor(props) {
 
     super(props);
     this.state = {
@@ -28,8 +40,7 @@ export class App extends React.Component<Props, State> {
       isMovieSelected: false,
       movies,
     };
-    console.log(this.state);
-  }
+  }*/
 
   toggleType(genre: string) {
     this.setState({ genreSelected: genre });
@@ -77,25 +88,35 @@ export class App extends React.Component<Props, State> {
       <ErrorBoundary>
         <Header
           reset={() => this.reset()}
-          movie={this.state.movieSelected}
-          isMovieSelected={this.state.isMovieSelected}
+          movie={this.props.movieSelected}
+          isMovieSelected={this.props.isMovieSelected}
           onSearchClick={() => this.triggerSearch()}
-          searchInput={this.state.searchInput}
+          searchInput={this.props.searchInput}
           onChangeInput={() => this.changeSearchInput}
           searchInputEnter={() => this.getSearchInput}
-          genreSelected={this.state.genreSelected}
+          genreSelected={this.props.genreSelected}
           toggleType={(genre: string) => this.toggleType(genre)} />
 
         <StatusBar
-          sortedBy={this.state.sortBy}
+          sortedBy={this.props.sortBy}
           sortBy={(type:string) => this.sortBy(type)}
-          movieSelected={this.state.movieSelected}
-          count={this.state.movies && this.state.movies.length} />
+          movieSelected={this.props.movieSelected}
+          count={this.props.movies && this.props.movies.length} />
         <MoviesList
-          movies={this.state.movies}
+          movies={this.props.movies}
           goToMovie={(id: number) => this.goToMovie(id)} />
         <Footer />
       </ErrorBoundary>
     )
   }
 }
+
+const mapStateToProps = () => ({
+  ...initialState
+});
+
+const mapDispatchToProps = dispatch => ({
+  getMovies: () => dispatch(getMovies())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

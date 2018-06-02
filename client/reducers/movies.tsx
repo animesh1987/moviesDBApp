@@ -1,16 +1,18 @@
 import * as actions from "../actions/actionTypes";
-import {sortBy} from "../actions";
+/*import { sortBy } from "../actions";*/
+
+console.log(actions.GET_MOVIES);
 
 const initialState = {
-  movies: [],
-  searchBy: 'title',
-  isMovieSelected: false,
-  movieSelected: {},
   searchInput: '',
+  genreSelected: 'title',
   sortBy: 'release_date',
+  movieSelected: {},
+  isMovieSelected: false,
+  movies: [],
 };
 
-export const movies = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
 
     case actions.GET_MOVIES:
@@ -19,7 +21,7 @@ export const movies = (state = initialState, action) => {
         movies: action.movies
       };
 
-    case actions.TOGGLE_TYPE:
+    /* case actions.TOGGLE_TYPE:
       return {
         ...state,
         searchBy: action.type,
@@ -57,7 +59,7 @@ export const movies = (state = initialState, action) => {
         movies: action.movies,
         sortBy: sortBy
       };
-
+*/
     default:
       return state;
   }
