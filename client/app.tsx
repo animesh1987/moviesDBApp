@@ -78,7 +78,7 @@ const mapStateToProps = state => {
     movieSelected: state.movieSelected,
     isMovieSelected: state.isMovieSelected,
     movies: state.movies,
-  })
+  });
 };
 
 const mapDispatchToProps = dispatch => ({
