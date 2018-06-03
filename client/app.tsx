@@ -3,7 +3,7 @@ import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
 import { connect } from 'react-redux';
 import { MOVIES } from './data';
-import { getMovies, toggleType, changeSearchInput } from './actions';
+import { getMovies, toggleType, changeSearchInput, goToMovie, sortBy } from './actions';
 
 import { State, Movie } from './models';
 
@@ -37,13 +37,14 @@ class App extends React.Component<any, State> {
 
   triggerSearch = () => {
     this.props.getMovies({
-        search: this.props.searchInput,
-        searchBy: this.props.genreSelected
+      search: this.props.searchInput,
+      searchBy: this.props.genreSelected
     });
   };
 
   goToMovie(id: number) {
-    const movieSelected = this.state.movies.find(
+    this.props.goToMovie(id);
+    /*const movieSelected = this.state.movies.find(
       (movie: Movie) => movie.id === id
     );
     const genre = movieSelected.genres[0];
@@ -52,7 +53,7 @@ class App extends React.Component<any, State> {
     );
     this.setState({ isMovieSelected: true });
     this.setState({ movieSelected });
-    this.setState({ movies });
+    this.setState({ movies });*/
   };
 
   reset() {
@@ -62,7 +63,12 @@ class App extends React.Component<any, State> {
   };
 
   sortBy(type: string) {
-    this.setState({ sortBy: type });
+    console.log(type);
+    this.props.sort({
+      sortBy: type,
+      search: this.props.searchInput,
+      searchBy: this.props.genreSelected,
+    });
   };
 
   public render() {
@@ -95,12 +101,13 @@ class App extends React.Component<any, State> {
 
 const mapStateToProps = state => {
   state = state.movies;
+  console.log(state);
   return ({
     searchInput: state.searchInput,
     genreSelected: state.genreSelected,
-    sortBy: 'release_date',
-    movieSelected: {},
-    isMovieSelected: false,
+    sortBy: state.sortBy,
+    movieSelected: state.movieSelected,
+    isMovieSelected: state.isMovieSelected,
     movies: state.movies,
   })
 };
@@ -109,6 +116,8 @@ const mapDispatchToProps = dispatch => ({
   getMovies: (params) => dispatch(getMovies(params)),
   toggleType: (type) => dispatch(toggleType(type)),
   changeSearchInput: (text) => dispatch(changeSearchInput(text)),
+  sort: (params) => dispatch(sortBy(params)),
+  goToMovie: (id) => dispatch(goToMovie(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

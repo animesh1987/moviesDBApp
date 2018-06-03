@@ -29,6 +29,13 @@ export const movies = (state = initialState, action) => {
         ...state,
         searchInput: action.text
       };
+
+    case actions.SORT_MOVIES:
+      return {
+        ...state,
+        movies: action.movies,
+        sortBy: action.sortBy,
+      };
     /*
 
         case actions.GET_MOVIE:
@@ -42,13 +49,6 @@ export const movies = (state = initialState, action) => {
           return {
             ...state,
             ...initialState
-          };
-
-        case actions.SORT_MOVIES:
-          return {
-            ...state,
-            movies: action.movies,
-            sortBy: sortBy
           };
     */
     default:
