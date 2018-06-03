@@ -36,7 +36,10 @@ class App extends React.Component<any, State> {
   };
 
   triggerSearch = () => {
-    this.props.getMovies(this.props.searchInput);
+    this.props.getMovies({
+        search: this.props.searchInput,
+        searchBy: this.props.genreSelected
+    });
   };
 
   goToMovie(id: number) {
@@ -103,7 +106,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getMovies: (searchInput) => dispatch(getMovies(searchInput)),
+  getMovies: (params) => dispatch(getMovies(params)),
   toggleType: (type) => dispatch(toggleType(type)),
   changeSearchInput: (text) => dispatch(changeSearchInput(text)),
 });

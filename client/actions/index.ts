@@ -1,22 +1,31 @@
 import * as actions from './actionTypes';
 
-import {MOVIES} from '../data';
+const API_ADDRESS = 'http://react-cdp-api.herokuapp.com/movies';
 
-const movies = MOVIES.data;
+function transformURL(values: Object, api: string): string {
+  const baseURL = new URL(`${api}`);
+  for (let value in values) {
+    baseURL.searchParams.append(value, values[value])
+  }
+  return baseURL.href;
+};
 
-export const getMovies = (searchInput) => dispatch => {
-  console.log('search input', searchInput);
-  dispatch({
-    type: actions.GET_MOVIES,
-    movies
-  });
+export const getMovies = (params) => dispatch => {
+  const baseURL = transformURL(params, API_ADDRESS);
+  fetch(baseURL)
+    .then(res => res.json())
+    .then(data => {
+      dispatch({
+        type: actions.GET_MOVIES,
+        movies: data.data
+      })
+    });
 };
 
 export const toggleType = toggle_type => dispatch => {
   dispatch({
     type: actions.TOGGLE_TYPE,
     toggle_type,
-    movies
   });
 };
 
@@ -26,11 +35,6 @@ export const changeSearchInput = text => dispatch => {
     text
   });
 };
-
-export const getSearchInput = key => ({
-  type: actions.TRIGGER_SEARCH,
-  key
-});
 
 export const goToMovie = id => ({
   type: actions.GET_MOVIE,
@@ -45,6 +49,3 @@ export const sortBy = sort_by => ({
   type: actions.SORT_MOVIES,
   sort_by
 });
-
-//https://www.youtube.com/watch?v=IABpU-AfpLQ
-//https://github.com/luckyluck/burger_builder/blob/master/src/axios-orders.js

@@ -22,22 +22,14 @@ export const movies = (state = initialState, action) => {
       return {
         ...state,
         genreSelected: action.toggle_type,
-        movies: action.movies
       };
 
     case actions.CHANGE_SEARCH_INPUT:
-      console.log('reducer called');
       return {
         ...state,
         searchInput: action.text
       };
     /*
-
-        case actions.TRIGGER_SEARCH:
-          return {
-            ...state,
-            movies: action.movies
-          };
 
         case actions.GET_MOVIE:
           return {
