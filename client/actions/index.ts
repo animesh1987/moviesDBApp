@@ -5,7 +5,13 @@ const API_ADDRESS = 'http://react-cdp-api.herokuapp.com/movies';
 function transformURL(values: Object, api: string): string {
   const baseURL = new URL(`${api}`);
   for (let value in values) {
-    baseURL.searchParams.append(value, values[value])
+    if(value === 'filter') {
+      values[value].forEach(type => {
+        baseURL.searchParams.append(value, type);
+      });
+    } else {
+      baseURL.searchParams.append(value, values[value]);
+    }
   }
   return baseURL.href;
 }
@@ -48,12 +54,18 @@ export const sortBy = params => async(dispatch) => {
 };
 
 export const goToMovie = id => async(dispatch) => {
-  const data = await callApi(`${API_ADDRESS}/${id}`);
-  console.log(dispatch, data);
-  /*dispatch({
+  const movie = await callApi(`${API_ADDRESS}/${id}`);
+  const params = {
+    filter: [...movie.genres]
+  };
+  const baseURL = transformURL(params, API_ADDRESS);
+  const data = await callApi(baseURL);
+  dispatch({
     type: actions.GET_MOVIE,
-    id
-  });*/
+    movies: data.data,
+    movieSelected: movie,
+    isMovieSelected: true
+  });
 };
 
 export const reset = () => ({

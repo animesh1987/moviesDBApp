@@ -15,7 +15,7 @@ export const movies = (state = initialState, action) => {
     case actions.GET_MOVIES:
       return {
         ...state,
-        movies: action.movies
+        movies: action.movies,
       };
 
     case actions.TOGGLE_TYPE:
@@ -27,7 +27,7 @@ export const movies = (state = initialState, action) => {
     case actions.CHANGE_SEARCH_INPUT:
       return {
         ...state,
-        searchInput: action.text
+        searchInput: action.text,
       };
 
     case actions.SORT_MOVIES:
@@ -36,21 +36,22 @@ export const movies = (state = initialState, action) => {
         movies: action.movies,
         sortBy: action.sortBy,
       };
-    /*
 
-        case actions.GET_MOVIE:
-          return {
-            ...state,
-            movie: action.movie,
-            movies: action.movies
-          };
+    case actions.GET_MOVIE:
+      console.log('reducer');
+      return {
+        ...state,
+        movieSelected: action.movieSelected,
+        movies: action.movies,
+        isMovieSelected: true,
+      };
 
-        case actions.RESET:
-          return {
-            ...state,
-            ...initialState
-          };
-    */
+    case actions.RESET:
+      return {
+        ...state,
+        ...initialState
+      };
+
     default:
       return state;
   }

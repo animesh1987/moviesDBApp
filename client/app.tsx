@@ -3,7 +3,7 @@ import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
 import { connect } from 'react-redux';
 import { MOVIES } from './data';
-import { getMovies, toggleType, changeSearchInput, goToMovie, sortBy } from './actions';
+import { getMovies, toggleType, changeSearchInput, goToMovie, sortBy, reset } from './actions';
 
 import { State, Movie } from './models';
 
@@ -12,10 +12,6 @@ import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
 class App extends React.Component<any, State> {
-
-  /*componentWillMount() {
-    console.log(this.props.getMovies);
-  }*/
 
   state: State;
   moviesList: Movie[] = MOVIES.data;
@@ -44,26 +40,13 @@ class App extends React.Component<any, State> {
 
   goToMovie(id: number) {
     this.props.goToMovie(id);
-    /*const movieSelected = this.state.movies.find(
-      (movie: Movie) => movie.id === id
-    );
-    const genre = movieSelected.genres[0];
-    const movies = this.state.movies.filter(
-      (movie: Movie) => movie.genres.includes(genre)
-    );
-    this.setState({ isMovieSelected: true });
-    this.setState({ movieSelected });
-    this.setState({ movies });*/
   };
 
   reset() {
-    this.setState({ isMovieSelected: false });
-    this.setState({ movieSelected: {} });
-    this.setState({ movies: this.moviesList });
+    this.props.reset();
   };
 
   sortBy(type: string) {
-    console.log(type);
     this.props.sort({
       sortBy: type,
       search: this.props.searchInput,
@@ -101,7 +84,6 @@ class App extends React.Component<any, State> {
 
 const mapStateToProps = state => {
   state = state.movies;
-  console.log(state);
   return ({
     searchInput: state.searchInput,
     genreSelected: state.genreSelected,
@@ -118,6 +100,7 @@ const mapDispatchToProps = dispatch => ({
   changeSearchInput: (text) => dispatch(changeSearchInput(text)),
   sort: (params) => dispatch(sortBy(params)),
   goToMovie: (id) => dispatch(goToMovie(id)),
+  reset: () => dispatch(reset()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
