@@ -38,7 +38,6 @@ export const movies = (state = initialState, action) => {
       };
 
     case actions.GET_MOVIE:
-      console.log('reducer');
       return {
         ...state,
         movieSelected: action.movieSelected,

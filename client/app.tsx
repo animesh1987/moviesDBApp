@@ -16,13 +16,8 @@ class App extends React.Component<any, State> {
   state: State;
   moviesList: Movie[] = MOVIES.data;
 
-  toggleType(genre: string) {
-    this.props.toggleType(genre);
-  };
-
   changeSearchInput = (event: any) => {
     this.props.changeSearchInput(event.target.value);
-    /*this.setState({ searchInput: event.target.value });*/
   };
 
   getSearchInput = (event: any) => {
@@ -38,14 +33,6 @@ class App extends React.Component<any, State> {
     });
   };
 
-  goToMovie(id: number) {
-    this.props.goToMovie(id);
-  };
-
-  reset() {
-    this.props.reset();
-  };
-
   sortBy(type: string) {
     this.props.sort({
       sortBy: type,
@@ -58,7 +45,7 @@ class App extends React.Component<any, State> {
     return (
       <ErrorBoundary>
         <Header
-          reset={() => this.reset()}
+          reset={() => this.props.reset()}
           movie={this.props.movieSelected}
           isMovieSelected={this.props.isMovieSelected}
           onSearchClick={() => this.triggerSearch()}
@@ -66,7 +53,7 @@ class App extends React.Component<any, State> {
           onChangeInput={() => this.changeSearchInput}
           searchInputEnter={() => this.getSearchInput}
           genreSelected={this.props.genreSelected}
-          toggleType={(genre: string) => this.toggleType(genre)} />
+          toggleType={(genre: string) => this.props.toggleType(genre)} />
 
         <StatusBar
           sortedBy={this.props.sortBy}
@@ -75,7 +62,7 @@ class App extends React.Component<any, State> {
           count={this.props.movies && this.props.movies.length} />
         <MoviesList
           movies={this.props.movies}
-          goToMovie={(id: number) => this.goToMovie(id)} />
+          goToMovie={(id: number) => this.props.goToMovie(id)} />
         <Footer />
       </ErrorBoundary>
     )
