@@ -1,0 +1,129 @@
+<html><head><meta charset="utf-8"/><title>Test report</title><style type="text/css">html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+body {
+	padding: 1rem;
+	font-size: 0.85rem;
+}
+header {
+	display: flex;
+	align-items: center;
+}
+#title {
+	margin: 0;
+	flex-grow: 1;
+}
+#logo {
+	height: 4rem;
+}
+#timestamp {
+	font-weight: bold;
+	color: #666;
+	margin-bottom: 0.5rem;
+}
+#summary {
+	color: #999;
+	margin-bottom: 1rem;
+}
+.suite-info {
+	padding: 1rem;
+	background-color: #eee;
+	border-bottom: 2px solid #999;
+	color: #999;
+	display: flex;
+	align-items: center;
+}
+.suite-info .suite-path {
+	font-weight: bold;
+	word-break: break-all;
+	flex-grow: 1;
+}
+.suite-info .suite-time {
+	margin-left: 0.5rem;
+	padding: 0.2rem 0.3rem;
+	font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+	background-color: #D8000C;
+	color: #fff;
+}
+.suite-table {
+	width: 100%;
+	font-size: 0.85rem;
+	margin-bottom: 1em;
+}
+.suite-table td {
+	padding: 0.5rem;
+}
+.suite-table tr.passed {
+	background-color: #DFF2BF;
+	color: #4F8A10;
+}
+.suite-table tr.pending {
+	background-color: #FEEFB3;
+	color: #9F6000;
+}
+.suite-table tr.failed {
+	background-color: #FFBABA;
+	color: #D8000C;
+}
+.suite-table td {
+	font-size: 0.85rem;
+	border-bottom: 1px solid #aaa;
+	vertical-align: top;
+}
+.suite-table td.suite {
+	font-weight: bold;
+	width: 20%;
+}
+.suite-table td.test {
+	font-style: italic;
+	width: 60%;
+}
+.suite-table td.test .failureMsg {
+	font-size: 1rem;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+.suite-table td.result {
+	width: 20%;
+	text-align: right;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+	margin-bottom: 2rem;
+	padding: 1rem;
+	background-color: #efefef;
+}
+.suite-consolelog-header {
+	font-weight: bold;
+}
+.suite-consolelog-item {
+	padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+	margin: 0;
+}
+.suite-consolelog-item-origin {
+	color: #777;
+	font-weight: bold;
+}
+.suite-consolelog-item-message {
+	color: #000;
+	font-size: 1rem;
+	padding: 0 0.5rem;
+}
+</style></head><header><h1 id="title">Test report</h1></header><div id="metadata-container"><div id="timestamp">Start: 2018-06-07 22:10:37</div><div id="summary">
+				36 tests --
+				36 passed /
+				0 failed /
+				0 pending
+			</div></div><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/__tests__/app.spec.tsx</div><div class="suite-time">0.151s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movies List Test</td><td class="test">Empty state renders correctly</td><td class="result">passed in 0.004s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">should set toggle type</td><td class="result">passed in 0.011s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">sets search input correctly</td><td class="result">passed in 0.007s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">click on search button works correctly</td><td class="result">passed in 0.018s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">sort by is applied correctly</td><td class="result">passed in 0.022s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">app resets correctly</td><td class="result">passed in 0.031s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">search is triggered when enter is pressed</td><td class="result">passed in 0.018s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/pages/moviesList/__tests__/moviesList.spec.tsx</div><div class="suite-time">0.046s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movies List Test</td><td class="test">Empty state renders correctly</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">Movie renders correctly</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">Movies List Test</td><td class="test">gotomovie is called correctly</td><td class="result">passed in 0.008s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/statusBar/components/resultsCount/__tests__/resultsCount.spec.tsx</div><div class="suite-time">0.037s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Results Count Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/header/components/searchTitle/__tests__/searchTitle.spec.tsx</div><div class="suite-time">0.037s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Search Title Test</td><td class="test">renders correctly</td><td class="result">passed in 0.003s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/movie/__tests__/movie.spec.tsx</div><div class="suite-time">0.032s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movie Details Test</td><td class="test">renders correctly</td><td class="result">passed in 0.003s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/header/components/title/__tests__/title.spec.tsx</div><div class="suite-time">0.028s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Title Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/statusBar/__tests__/statusBar.spec.tsx</div><div class="suite-time">0.036s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Sort By Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">Sort By Test</td><td class="test">renders correctly</td><td class="result">passed in 0.001s</td></tr><tr class="passed"><td class="suite">Sort By Test</td><td class="test">calls sort by function</td><td class="result">passed in 0.005s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/button/__tests__/button.tsx</div><div class="suite-time">0.043s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">active added successfully</td><td class="result">passed in 0.004s</td></tr><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">long added successfully</td><td class="result">passed in 0.001s</td></tr><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">primary added successfully</td><td class="result">passed in 0.001s</td></tr><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">function called successfully</td><td class="result">passed in 0.008s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/header/__tests__/header.spec.tsx</div><div class="suite-time">0.046s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Header Test</td><td class="test">Header without movie renders correctly</td><td class="result">passed in 0.003s</td></tr><tr class="passed"><td class="suite">Header Test</td><td class="test">Header with movie renders correctly</td><td class="result">passed in 0.003s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/header/components/searchInput/__tests__/searchInput.spec.tsx</div><div class="suite-time">0.034s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Search Input Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/footer/__tests__/footer.spec.tsx</div><div class="suite-time">0.029s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/bannerImage/__tests__/bannerImage.spec.tsx</div><div class="suite-time">0.03s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr><tr class="passed"><td class="suite">Movie Banner Test</td><td class="test">Image Link applied correctly</td><td class="result">passed in 0.003s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/movie/components/details/__tests__/details.spec.tsx</div><div class="suite-time">0.03s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movie Details Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/statusBar/components/sortBy/__tests__/sortBy.spec.tsx</div><div class="suite-time">0.032s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Sort By Test</td><td class="test">renders correctly</td><td class="result">passed in 0.003s</td></tr><tr class="passed"><td class="suite">Sort By Test</td><td class="test">Sort By function works correctly</td><td class="result">passed in 0.003s</td></tr><tr class="passed"><td class="suite">Sort By Test</td><td class="test">Active class applied correctly</td><td class="result">passed in 0.001s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/header/components/searchBy/__tests__/searchBy.spec.tsx</div><div class="suite-time">0.036s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Search By test</td><td class="test">Search By renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/movie/components/genreDetails/__tests__/genreDetails.spec.tsx</div><div class="suite-time">0.035s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Movie Details Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/pages/moviesList/components/emptyState/__tests__/emptyState.spec.tsx</div><div class="suite-time">0.039s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Empty State Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/animesh/Work/IdeaProjects/study/epamMentorship/moviesDBApp/client/components/statusBar/components/genre/__tests__/genre.spec.tsx</div><div class="suite-time">0.026s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">Genre Test</td><td class="test">renders correctly</td><td class="result">passed in 0.002s</td></tr></table></html>

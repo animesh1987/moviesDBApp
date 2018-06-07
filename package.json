@@ -6,7 +6,7 @@
     "build:dev": "webpack --env.dev",
     "build:prod": "webpack -p --env.prod",
     "dev": "webpack-dev-server --env.dev",
-    "test": "jest -u",
+    "test": "jest --watch -u",
     "coverage": "jest --coverage",
     "lint": "eslint ."
   },
@@ -49,7 +49,9 @@
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
     "jest": "^22.4.3",
+    "jest-html-reporter": "^2.3.0",
     "jest-runtime": "^22.4.3",
     "jest-util": "^22.4.3",
     "jest-validate": "^22.4.3",
@@ -76,6 +78,7 @@
       "js",
       "scss"
     ],
+    "testResultsProcessor": "./node_modules/jest-html-reporter",
     "moduleNameMapper": {
       "^.+\\.(css|less|scss)$": "babel-jest"
     },
