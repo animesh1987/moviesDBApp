@@ -2,7 +2,6 @@ import * as React from "react";
 import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
 import { connect } from 'react-redux';
-//import { BrowserRouter as Router } from 'react-router-dom'
 
 import { getMovies, toggleType, changeSearchInput, goToMovie, sortBy, reset } from './actions';
 
@@ -12,15 +11,6 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
-/*const initialState = {
-  searchInput: '',
-  genreSelected: 'title',
-  sortBy: 'release_date',
-  movieSelected: {},
-  isMovieSelected: false,
-  movies: [],
-};*/
-
 class App extends React.Component<any, State> {
 
   state: State;
@@ -28,13 +18,13 @@ class App extends React.Component<any, State> {
   componentDidMount() {
     const { match, match: { params } } = this.props;
     if (/search/gi.test(match.path)) {
-      console.log(mapStateToProps, match);
-      /*mapStateToProps(initialState, {
-        searchInput: params.searchInput
-      });*/
       this.props.changeSearchInput(params.searchInput);
-      this.triggerSearch();
-      console.log(this.props);
+      this.props.getMovies({
+        search: this.props.searchInput,
+        searchBy: this.props.genreSelected
+      });
+    } else if (/film/gi.test(match.path)) {
+      this.props.goToMovie(params.id);
     }
   }
 
@@ -105,8 +95,7 @@ class App extends React.Component<any, State> {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
+const mapStateToProps = (state) => {
   state = state.movies;
   return ({
     searchInput: state.searchInput,
@@ -128,5 +117,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-//export default connect(mapStateToProps, mapDispatchToProps)(App);

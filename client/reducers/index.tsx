@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import { movies } from './movies';
 
 export const reducers = combineReducers({
-  movies: movies
+  movies: movies,
+  router: routerReducer
 });
