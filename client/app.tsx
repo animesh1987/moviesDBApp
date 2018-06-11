@@ -34,6 +34,9 @@ class App extends React.Component<any, State> {
   };
 
   sortBy(type: string) {
+    if (type === 'rating') {
+      type = 'vote_average';
+    }
     this.props.sort({
       sortBy: type,
       search: this.props.searchInput,

@@ -44,6 +44,7 @@ export const changeSearchInput = text => dispatch => {
 };
 
 export const sortBy = params => async(dispatch) => {
+  params.sortOrder = 'desc';
   const baseURL = transformURL(params, API_ADDRESS);
   const data = await callApi(baseURL);
   dispatch({
