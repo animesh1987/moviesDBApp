@@ -11,7 +11,7 @@ export class Main extends React.Component {
       <div>
         <Switch>
           <Route exact path="/" component={App} />
-          <Route exact path="/search/*" component={App} />
+          <Route exact path="/search/:searchInput" component={App} />
           <Route exact path="/film/:id" component={App} />
           <Route path="*" component={NotFound} />
         </Switch>

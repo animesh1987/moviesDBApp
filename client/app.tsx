@@ -12,9 +12,31 @@ import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
 import { Footer } from './components/footer';
 
+/*const initialState = {
+  searchInput: '',
+  genreSelected: 'title',
+  sortBy: 'release_date',
+  movieSelected: {},
+  isMovieSelected: false,
+  movies: [],
+};*/
+
 class App extends React.Component<any, State> {
 
   state: State;
+
+  componentDidMount() {
+    const { match, match: { params } } = this.props;
+    if (/search/gi.test(match.path)) {
+      console.log(mapStateToProps, match);
+      /*mapStateToProps(initialState, {
+        searchInput: params.searchInput
+      });*/
+      this.props.changeSearchInput(params.searchInput);
+      this.triggerSearch();
+      console.log(this.props);
+    }
+  }
 
   changeSearchInput = (event: any) => {
     this.props.changeSearchInput(event.target.value);
@@ -27,8 +49,10 @@ class App extends React.Component<any, State> {
   };
 
   triggerSearch = () => {
-    this.props.history
-      .push(`/search/${this.props.searchInput}`);
+    if (this.props.history.location.pathname !== `/search/${this.props.searchInput}`) {
+      this.props.history
+        .push(`/search/${this.props.searchInput}`);
+    }
     this.props.getMovies({
       search: this.props.searchInput,
       searchBy: this.props.genreSelected
@@ -81,7 +105,8 @@ class App extends React.Component<any, State> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
   state = state.movies;
   return ({
     searchInput: state.searchInput,
