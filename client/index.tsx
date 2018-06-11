@@ -1,15 +1,19 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {store} from "./store";
 
 import './main.scss';
 
-import App from './app';
+import { Main } from './main';
 
 const app = (
   <Provider store={store}>
-    <App />
+    <Router>
+      <Main>
+      </Main>
+    </Router>
   </Provider>
 );
 

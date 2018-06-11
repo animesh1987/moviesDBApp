@@ -2,10 +2,11 @@ import * as React from "react";
 import { MoviesList } from './pages/moviesList'
 import { ErrorBoundary } from './errorBoundary';
 import { connect } from 'react-redux';
-import { MOVIES } from './data';
+//import { BrowserRouter as Router } from 'react-router-dom'
+
 import { getMovies, toggleType, changeSearchInput, goToMovie, sortBy, reset } from './actions';
 
-import { State, Movie } from './models';
+import { State } from './models';
 
 import { Header } from './components/header';
 import { StatusBar } from './components/statusBar';
@@ -14,7 +15,6 @@ import { Footer } from './components/footer';
 class App extends React.Component<any, State> {
 
   state: State;
-  moviesList: Movie[] = MOVIES.data;
 
   changeSearchInput = (event: any) => {
     this.props.changeSearchInput(event.target.value);
@@ -27,6 +27,8 @@ class App extends React.Component<any, State> {
   };
 
   triggerSearch = () => {
+    this.props.history
+      .push(`/search/${this.props.searchInput}`);
     this.props.getMovies({
       search: this.props.searchInput,
       searchBy: this.props.genreSelected
@@ -48,7 +50,10 @@ class App extends React.Component<any, State> {
     return (
       <ErrorBoundary>
         <Header
-          reset={() => this.props.reset()}
+          reset={() => {
+            this.props.history.push('/');
+            this.props.reset();
+          }}
           movie={this.props.movieSelected}
           isMovieSelected={this.props.isMovieSelected}
           onSearchClick={() => this.triggerSearch()}
@@ -65,7 +70,11 @@ class App extends React.Component<any, State> {
           count={this.props.movies && this.props.movies.length} />
         <MoviesList
           movies={this.props.movies}
-          goToMovie={(id: number) => this.props.goToMovie(id)} />
+          goToMovie={(id: number) => {
+            this.props.history
+              .push(`/film/${id}`);
+            this.props.goToMovie(id);
+          }} />
         <Footer />
       </ErrorBoundary>
     )
@@ -94,3 +103,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+//export default connect(mapStateToProps, mapDispatchToProps)(App);

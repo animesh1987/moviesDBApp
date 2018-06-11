@@ -50,6 +50,9 @@ module.exports = (env) => {
     },
     devServer: {
       contentBase: './build',
+      historyApiFallback: {
+        index: 'index.html'
+      }
     },
     plugins: [
       new HtmlWebpackPlugn({
